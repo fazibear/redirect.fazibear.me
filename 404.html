@@ -4,11 +4,54 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
     <title>redirect.fazibear.me</title>
     <script>
-      var new_location = "https://fazibear.me"
+      const post_ids = {
+        "c253bfd67fdf": "ember-cli-with-coffee-and-emblem",
+        "59fd534869f0": "fishy-prompt-widgets",
+        "3c17e0958694": "having-fun-with-opal-and-sprockets",
+        "74e1bce100c6": "deploy-elixir-application-with-elastic-beanstalk",
+        "986cd56b8f02": "automated-elixir-code-review-with-github-credo-and-travis-ci",
+        "f9154f66e0c8": "play-sid-files-on-real-commodore-64",
+        "d83d5abc8898": "elixir-ruby-don-t-fight-talk-with-export-erlport",
+        "24b0f5ed8d12": "elixir-ruby-don-t-fight-talk-with-erlix",
+        "dbf3af67d999": "elixir-ruby-don-t-fight-talk-with-erlectricity",
+        "9c6f442de37e": "elixir-ruby-don-t-fight-benchmark",
+        "330796afd06 ": "real-time-audio-processing-with-ruby",
+        "5280432e482a": "real-time-audio-processing-with-ruby",
+        "5f8b1d67169e": "defql-sql-queries-as-elixir-functions",
+        "1f0e1764e0a7": "learning-tensorflow-with-crystal",
+        "93d707b22bbb": "definitive-guide-to-rust-sdl2-and-emscriptem",
+        "790e8236e8e9": "the-beginners-guide-to-linux-kernel-module-raspbery-pi-and-led-matrix",
+        "5dd67970d073": "brewing-the-firmware-for-raspberry-pi-with-elixir-and-nerves",
+        "ccf51b20e84c": "umbrella-on-rails",
+        "9d6cbf089600": "tips-for-building-kiosk-device-with-nerves-and-buildroot"
+      }
 
-      // ... check ...
-      
-      window.location.replace(new_location);
+      const redirect_to - function() {
+        for(var id in post_ids) {
+          if(RegExp(id).test(location)){
+            return "https://blog.fazibear.me/" + post_ids[id];
+          }
+        }
+
+        const blog_with_date = /\/blog\/\d+\/\d+\/\d+\/([^\/]*)/.exec(location);
+        if(blog_with_date){
+          return "https://blog.fazibear.me/" + blog_with_date[1];
+        }
+
+        const blog = /\/blog\/([^\/]*)/.test(location);
+        if(blog){
+          return "https://blog.fazibear.me/" + blog[1];
+        }
+
+        const story = /\/story\/([^\/]*)/.test(location);
+        if(story){
+          return "https://blog.fazibear.me/" + story[1];
+        }
+
+        return "https://fazibear.me";
+      }
+
+      window.location.replace(redirect_to());
     </script>
   </head>
   <body>
