@@ -38,12 +38,12 @@
           return "https://blog.fazibear.me/" + blog_with_date[1];
         }
 
-        const blog = /\/blog\/([^\/]*)/.test(location);
+        const blog = /\/blog\/([^\/]*)/.exec(location);
         if(blog){
           return "https://blog.fazibear.me/" + blog[1];
         }
 
-        const story = /\/story\/([^\/]*)/.test(location);
+        const story = /\/story\/([^\/]*)/.exec(location);
         if(story){
           return "https://blog.fazibear.me/" + story[1];
         }
